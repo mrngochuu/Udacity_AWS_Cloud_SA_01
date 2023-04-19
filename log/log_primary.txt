@@ -1,0 +1,44 @@
+ubuntu@ip-10-1-10-88:~$ mysql -h primary-db.c0zm2ym5mlon.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 42
+Server version: 8.0.32 Source distribution
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from ls
+    -> ^C
+mysql> CREATE TABLE example_table (
+    ->   id INT PRIMARY KEY AUTO_INCREMENT,
+    ->   name VARCHAR(50),
+    ->   age INT
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> USE Udacity
+ERROR 1049 (42000): Unknown database 'Udacity'
+mysql> USE udacity
+Database changed
+mysql> CREATE TABLE example_table (
+    ->   id INT PRIMARY KEY AUTO_INCREMENT,
+    ->   name VARCHAR(50),
+    ->   age INT
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO example_table (name, age) VALUES ('John', 25);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> SELECT * FROM example_table;
++----+------+------+
+| id | name | age  |
++----+------+------+
+|  1 | John |   25 |
++----+------+------+
+1 row in set (0.00 sec)

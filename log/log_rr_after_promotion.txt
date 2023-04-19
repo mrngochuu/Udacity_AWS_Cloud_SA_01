@@ -1,0 +1,44 @@
+ubuntu@ip-10-1-11-29:~$ mysql -h secondary-db.cony4nuzkcdn.us-west-2.rds.amazonaws.com -P 3306 -u admin -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.32 Source distribution
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SELECT * FROM example_table;
++----+------+------+
+| id | name | age  |
++----+------+------+
+|  1 | John |   25 |
++----+------+------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO example_table VALUES (2, Huu, 27);
+ERROR 1054 (42S22): Unknown column 'Huu' in 'field list'
+mysql> INSERT INTO example_table VALUES (Huu, 27);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO example_table VALUES (2, "Huu", 27);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM example_table;
++----+------+------+
+| id | name | age  |
++----+------+------+
+|  1 | John |   25 |
+|  2 | Huu  |   27 |
++----+------+------+
+2 rows in set (0.00 sec)
+
+mysql> 

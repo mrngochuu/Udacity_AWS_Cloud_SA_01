@@ -1,0 +1,6 @@
+1.Minimum Recovery Time Objective (RTO) for a single AZ outage: Low, within a few minutes due to automatic failover to a standby replica in another AZ.
+2.Minimum RTO for a single region outage: Depends on the manual recovery process in the standby region, which could take longer compared to a single AZ outage.
+3.Minimum Recovery Point Objective (RPO) for a single AZ outage: Low, within seconds due to synchronous replication between the primary and standby replica.
+4.Minimum RPO for a single region outage: Depends on the recovery time from the backup in the standby region, which may result in data loss since the last backup.
+
+However, the specific RTO and RPO depend on various factors and should be considered in a comprehensive disaster recovery plan for the database. Regular testing and monitoring of the database configuration are also essential to achieve the desired RTO and RPO in practice.
